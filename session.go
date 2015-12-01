@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 	"log"
+	"fmt"
 )
 
 // Session holds the configuration variables received from the socket.io
