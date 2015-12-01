@@ -32,13 +32,15 @@ func NewSession(url string) (*Session, error) {
 	if err != nil {
 		return nil, err
 	}
+	log.Println("response , ", response)
 
 	body, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		return nil, err
 	}
 	response.Body.Close()
-
+	
+	log.Println(string(body))
 	sessionVars := strings.Split(string(body), ":")
 	if len(sessionVars) != 4 {
 		log.Println("Session vars ", sessionVars)
