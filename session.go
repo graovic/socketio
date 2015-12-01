@@ -27,6 +27,7 @@ func NewSession(url string) (*Session, error) {
 	if err != nil {
 		return nil, err
 	}
+	log.Println("url Parser ", urlParser)
 	response, err := http.Get(urlParser.handshake())
 	if err != nil {
 		return nil, err
