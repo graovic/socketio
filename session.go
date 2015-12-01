@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"log"
 )
 
 // Session holds the configuration variables received from the socket.io
@@ -38,7 +39,8 @@ func NewSession(url string) (*Session, error) {
 
 	sessionVars := strings.Split(string(body), ":")
 	if len(sessionVars) != 4 {
-		return nil, errors.New("Session variables is not 4")
+		log.Println("Session vars ", sessionVars)
+		return nil, errors.New("Session variables is not 4, we received session with id ", len(sessionVars))
 	}
 
 	id := sessionVars[0]
